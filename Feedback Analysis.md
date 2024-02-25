@@ -1,3 +1,9 @@
+ # Feedback Analysis for Intel course
+
+## Introduction
+
+This feedback report presents an analysis of student satisfaction with regards to teacher's teaching quality, knowledge, and other relevant aspects. The feedback was collected through a survey administered to students, asking them to evaluate various aspects of their teachers' performance and their overall learning experience.
+
 ## Importing necessary libraries
 
 ```python
@@ -33,7 +39,28 @@ df_class.isnull().sum().sum()
 df_class.shape
 ```
 
-## Exploratory Data Analysis
+
+## Dataset overview
+The dataset contains feedback responses from participants of a session. It includes several columns:
+
+Timestamp: It includes the date and time when the feedback was submitted by the student.
+
+Name of the Participant: The name of the participant who provided the feedback.
+
+Email ID: The email address of the participant.
+
+Branch: from which branch the student comes from.
+
+Semester: The current semester of the participant.
+
+Resource Person of the session: The resource person for the session.
+
+Ratings: It is the rating provided by the participant for the teachers who conducted the session based on several factors like content quality,effectiveness etc
+
+
+## Exploratory Data Analysis (EDA)
+Resource Person-wise Distribution: This report provides an analysis of the feedback collected from students regarding their satisfaction with resource persons in various educational programs. 
+Participant Name Analysis:This report provides an analysis of participant names in the context of an educational program or event.
 
 ```python
 ## creating a percentage analysis of RP-wise distribution of data
@@ -42,8 +69,17 @@ round(df_class["Resourse Person"].value_counts(normalize=True)*100,2)
 round(df_class["Name"].value_counts(normalize=True)*100,2)
 ```
 
-## Visualization
-
+Visualization: created to understand the faculty-wise distribution of data  across different categories
+```python
+```python
+ax = plt.subplot(1,2,1)
+ax = sns.countplot(x='Resourse Person', data=df_class)
+#ax.bar_label(ax.containers[0])
+plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
+ax =plt.subplot(1,2,2)
+ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
+ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
+```
 ```python
 ax = plt.subplot(1,2,1)
 ax = sns.countplot(x='Resourse Person', data=df_class)
