@@ -256,3 +256,11 @@ plt.show()
 ```
 ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/f39e3b0b-ebd4-483c-aeda-edb1f7c15a28)
 
+## Result and Conclusion
+
+  * Understanding resource person performance through feedback can provide valuable insights into their strengths and areas for improvement, facilitating targeted 
+    professional development efforts and ultimately enhancing the overall quality of future sessions.
+
+
+
+
