@@ -43,76 +43,130 @@ df_class.shape
 ## Dataset overview
 The dataset contains feedback responses from participants of a session. It includes several columns:
 
-Timestamp: It includes the date and time when the feedback was submitted by the student.
+  * Timestamp: It includes the date and time when the feedback was submitted by the student.
 
-Name of the Participant: The name of the participant who provided the feedback.
+  * Name of the Participant: The name of the participant who provided the feedback.
 
-Email ID: The email address of the participant.
+  * Email ID: The email address of the participant.
 
-Branch: from which branch the student comes from.
+  * Branch: from which branch the student comes from.
 
-Semester: The current semester of the participant.
+  * Semester: The current semester of the participant.
 
-Resource Person of the session: The resource person for the session.
+  * Resource Person of the session: The resource person for the session.
 
-Ratings: It is the rating provided by the participant for the teachers who conducted the session based on several factors like content quality,effectiveness etc
+  * Ratings: It is the rating provided by the participant for the teachers who conducted the session based on several factors like content quality,effectiveness 
+             etc
 
 
 ## Exploratory Data Analysis (EDA)
-Resource Person-wise Distribution: This report provides an analysis of the feedback collected from students regarding their satisfaction with resource persons in various educational programs. 
-Participant Name Analysis:This report provides an analysis of participant names in the context of an educational program or event.
 
-```python
+   ```python
 ## creating a percentage analysis of RP-wise distribution of data
 round(df_class["Resourse Person"].value_counts(normalize=True)*100,2)
 ## creating a percentage analysis of RP-wise distribution of data
 round(df_class["Name"].value_counts(normalize=True)*100,2)
 ```
 
-Visualization: created to understand the faculty-wise distribution of data  across different categories
-```python
-```python
-ax = plt.subplot(1,2,1)
-ax = sns.countplot(x='Resourse Person', data=df_class)
-#ax.bar_label(ax.containers[0])
-plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
-ax =plt.subplot(1,2,2)
-ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
-ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
-```
-```python
-ax = plt.subplot(1,2,1)
-ax = sns.countplot(x='Resourse Person', data=df_class)
-#ax.bar_label(ax.containers[0])
-plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
-ax =plt.subplot(1,2,2)
-ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
-ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
-```
+* Resource Person-wise Distribution: This report provides an analysis of the feedback collected from students regarding their satisfaction with resource persons 
+   
+* Participant Name Analysis:This report provides an analysis of participant names in the context of an educational program or event.
 
-## Summary of Responses
+* Visualization: created to understand the faculty-wise distribution of data  across different categories
+ 
+  ```python
+  ```python
+  ax = plt.subplot(1,2,1)
+  ax = sns.countplot(x='Resourse Person', data=df_class)
+  #ax.bar_label(ax.containers[0])
+  plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
+  ax =plt.subplot(1,2,2)
+  ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
+  ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
+  ```
+  ```python
+  ax = plt.subplot(1,2,1)
+  ax = sns.countplot(x='Resourse Person', data=df_class)
+  #ax.bar_label(ax.containers[0])
+  plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
+  ax =plt.subplot(1,2,2)
+  ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
+  ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
+  ```
+![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/fc77d696-b6bd-41b9-b87a-b91929868c99)
 
-```python
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Content Quality'])
-plt.show()
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Effeciveness'])
-plt.show()
-df_class.info()
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Expertise'])
-plt.show()
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Relevance'])
-plt.show()
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Overall Organization'])
-plt.show()
-sns.boxplot(y=df_class['Resourse Person'],x=df_class['Branch'])
-plt.show()
-sns.boxplot(y=df_class['Branch'],x=df_class['Content Quality'])
-plt.show()
-```
+
+## Content Quality:
+
+ * This boxplot suggests that the majority of resource persons are consistently delivering high-quality content, as reflected by the median ratings.
+
+ * the absence of outliers and the narrow interquartile range across all participants indicate a consistent trend of high ratings, underscoring the uniformity of 
+   positive feedback.
+
+  ```python
+  sns.boxplot(y=df_class['Resourse Person'],x=df_class['Content Quality'])
+  plt.show()  
+  ```
+   ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/5a9a5fc8-357c-43e8-bc0d-a35e41c4c8d9)
+  
+  
+## Effectiveness:
+
+ * The effectiveness of the sessions seems to be rated highly as well, with few outliers indicating occasional deviations from otherwise high ratings.
+ * Mrs. Veena A Kumar and Mrs. Gayathri J L have outliers on the lower end, which might suggest specific sessions where the effectiveness was rated lower than 
+   usual.
+
+  ```python
+  sns.boxplot(y=df_class['Resourse Person'],x=df_class['Effectiveness'])
+  plt.show()
+  ```
+  ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/735e316a-55d3-48fe-8aa3-87962ebbfe4b)
+
+  
+## Expertise:
+
+ * Similar to effectiveness, expertise ratings are high with few outliers.
+
+ * The outliers for Mrs. Veena A Kumar and Mrs. Gayathri J L suggest that there were certain sessions where the perceived expertise of the resource person 
+   was not up to the participants' expectations.
+
+   
+  ```python
+  sns.boxplot(y=df_class['Resourse Person'],x=df_class['Expertise'])
+  plt.show()
+  ```
+  ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/3d99ad6f-5bd9-488a-b56c-879f5d207c0b)
+
+## Relevance: 
+
+ * Relevance suggests that the  session content was well-aligned with the participants' needs and was perceived as highly relevant to real-world scenarios, as 
+   reflected by the absence of outliers and consistently high median values.
+ 
+ 
+  ```python
+  sns.boxplot(y=df_class['Resourse Person'],x=df_class['Relevance'])
+  plt.show()
+  ```
+  ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/616c3662-9073-44dd-9dba-41413c76b07f)
+
+
+## Ratings by Branch
+
+This uniformity in tight interquartile ranges across all branches in content quality ratings, with only a few outliers, indicates a consistent perception of high content quality irrespective of the academic department.
+
+ ```python
+  sns.boxplot(y=df_class['Resourse Person'],x=df_class['Branch'])
+  plt.show()
+  ```
+
+ ![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/57d59129-bb64-4ec7-9fdf-4c8616cae68e)
+
+  
+
 
 # Using K-means Clustering to identify segmentation over student's satisfaction
 
-## Finding the best value of k using elbow method
+## For finding the best value of k using elbow method
 
 ```python
 input_col=["Content Quality","Effeciveness","Expertise","Relevance","Overall Organization"]
@@ -134,6 +188,11 @@ plt.title('Elbow Method')
 plt.show()
 
 ```
+
+![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/41161fa2-0035-41e2-a73d-e3e77352b4a4)
+
+
+
 ## Using Gridsearch method
 
 ```python
@@ -195,4 +254,5 @@ plt.ylabel(input_col[2])
 plt.title('K-means Clustering')
 plt.show()
 ```
+![image](https://github.com/JobinPius/Python-for-ML/assets/160459885/f39e3b0b-ebd4-483c-aeda-edb1f7c15a28)
 
