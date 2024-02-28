@@ -259,6 +259,7 @@ plt.show()
 ![download](https://github.com/Christojs/Python-for-ML/assets/133338993/4cb5018d-6777-4009-a141-0ca3ca413ec8)
 
 ## Result and Conclusion
+
 The variability observed in student engagement metrics during the exploratory analysis underscores the potential for clustering to uncover distinct patterns or groups of similar student behaviors. Consequently, the next phase entails implementing k-means clustering to segment the student population according to their engagement levels. Subsequently, these clusters will be analyzed in depth to extract actionable insights that can inform targeted interventions and improvements in educational outcomes.
 
 
